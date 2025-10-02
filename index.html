@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kế hoạch Kinh doanh | Dự án "Summit" của Trillionaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="snow-container">
+        <div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div><div class="snow"></div>
+    </div>
+
+    <header class="mountain-scene">
+        <h1>DỰ ÁN SUMMIT: KẾ HOẠCH TÀI CHÍNH TRIỆU TỶ</h1>
+        <p>Tầm nhìn 5 năm (2025 - 2030) - Ông **Lê Trường**</p>
+        <div class="helicopter">🚁</div>
+    </header>
+
+    <main class="business-plan">
+
+        <h2 style="color: #4a90e2; text-align: center;">CÔNG CỤ PHÂN TÍCH VÀ DỰ PHÓNG</h2>
+
+        <section class="calculator-section">
+            <h2>1. DỰ PHÓNG LỢI NHUẬN TỪ KHÁCH HÀNG</h2>
+            <div class="calc-grid">
+                <div class="input-group">
+                    <label for="customers">Số lượng Khách hàng (A)</label>
+                    <input type="number" id="customers" value="100000" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="conversion">Tỷ lệ Chuyển đổi (%) (B)</label>
+                    <input type="number" id="conversion" value="5" min="0" max="100" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label for="value">Giá trị Mua hàng (VND) (C)</label>
+                    <input type="number" id="value" value="5000000" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="frequency">Số lần Mua hàng (D)</label>
+                    <input type="number" id="frequency" value="2" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="margin">Tỷ suất Lợi nhuận (%) (E)</label>
+                    <input type="number" id="margin" value="25" min="0" max="100" step="0.1">
+                </div>
+                
+                <div class="result-box">
+                    <p>LỢI NHUẬN DỰ PHÓNG (A*B*C*D*E)</p>
+                    <span id="profitResult" class="animated-number total-impact">1,250,000,000,000 VND</span>
+                </div>
+            </div>
+            <p class="formula-display">Công thức: Khách hàng * Tỷ lệ chuyển đổi * Giá trị mua hàng * Số lần mua hàng * Tỷ suất lợi nhuận = Lợi nhuận</p>
+        </section>
+
+        <section class="calculator-section">
+            <h2>2. TÍNH TOÁN LÃI KÉP & TĂNG TRƯỞNG TÀI SẢN</h2>
+            <div class="calc-grid">
+                <div class="input-group">
+                    <label for="initial">Số tiền Đầu tư ban đầu (VND)</label>
+                    <input type="number" id="initial" value="1000000000" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="monthlyAdd">Số tiền Đầu tư mỗi tháng (VND)</label>
+                    <input type="number" id="monthlyAdd" value="50000000" min="0">
+                </div>
+                 <div class="input-group">
+                    <label for="annualRate">Tỷ suất Lãi suất Hàng năm (%)</label>
+                    <input type="number" id="annualRate" value="12" min="0" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label for="years">Số năm Đầu tư</label>
+                    <input type="number" id="years" value="10" min="1">
+                </div>
+
+                <div class="result-box compound-result">
+                    <p>TỔNG TÀI SẢN THU ĐƯỢC (SAU <span id="yearsDisplay">10</span> NĂM)</p>
+                    <span id="compoundResult" class="animated-number total-impact">12,656,916,357 VND</span>
+                </div>
+            </div>
+            <p class="formula-display">Sử dụng Tỷ suất Lãi suất Hàng năm để tính Lãi kép hàng tháng.</p>
+        </section>
+
+        <div class="grid-container">
+            <section class="investment-column">
+                 </section>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Summit Global Holdings. Bảo mật tuyệt đối.</p>
+    </footer>
+
+    <script src="script.js"></script> 
+
+</body>
+</html>

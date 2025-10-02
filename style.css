@@ -1,0 +1,166 @@
+/* RESET CƠ BẢN */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1117; 
+    color: #f0f6fc;
+}
+
+/* ------------------------------------------- */
+/* I. THIẾT KẾ TRANG (Giữ nguyên từ phản hồi trước) */
+/* ------------------------------------------- */
+
+.mountain-scene {
+    background: url('https://picsum.photos/1920/600?grayscale') center center no-repeat;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
+    border-bottom: 5px solid #6c7d95;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.helicopter {
+    font-size: 4em;
+    position: absolute;
+    top: 50px;
+    left: -100px; 
+    animation: fly-across 30s linear infinite;
+    z-index: 20;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+@keyframes fly-across {
+    /* (Đã được định nghĩa trong phản hồi trước) */
+    0% { transform: translateX(0) translateY(0) rotate(0deg); }
+    50% { transform: translateX(calc(100vw + 200px)) translateY(-50px) rotate(-10deg); }
+    100% { transform: translateX(0) translateY(0) rotate(0deg); }
+}
+
+/* HIỆU ỨNG TUYẾT RƠI (Giữ nguyên) */
+.snow-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000;
+}
+.snow {
+    width: 10px; height: 10px; background: white; border-radius: 50%; position: absolute; opacity: 0.8;
+    left: calc(var(--i) * 1vw); 
+    animation: snow-fall linear infinite;
+    animation-duration: calc(10s + var(--i) * 0.1s); 
+    animation-delay: calc(var(--i) * -0.5s);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+.snow:nth-child(1) { --i: 5; top: -10px; }
+.snow:nth-child(2) { --i: 15; top: -50px; }
+.snow:nth-child(3) { --i: 25; top: -100px; }
+.snow:nth-child(4) { --i: 35; top: -150px; }
+.snow:nth-child(5) { --i: 45; top: -200px; }
+@keyframes snow-fall {
+    /* (Đã được định nghĩa trong phản hồi trước) */
+    0% { transform: translateY(-10vh); opacity: 0.8; }
+    100% { transform: translateY(100vh); opacity: 0.2; }
+}
+
+/* ------------------------------------------- */
+/* II. STYLE CÔNG CỤ TÍNH TOÁN */
+/* ------------------------------------------- */
+
+.business-plan {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #1a1e27;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.calculator-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #21262d;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.5fr; /* 3 inputs và 1 result */
+    gap: 20px;
+    align-items: end;
+}
+.calculator-section:nth-child(3) .calc-grid { /* Cho công thức lãi kép, 4 input + 1 result */
+    grid-template-columns: repeat(4, 1fr) 1.5fr; 
+}
+@media (max-width: 1000px) {
+    .calc-grid { grid-template-columns: repeat(2, 1fr); }
+    .result-box { grid-column: 1 / -1; } /* Kết quả chiếm hết chiều ngang */
+    .calculator-section:nth-child(3) .calc-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #9ecbff;
+    font-size: 0.9em;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #4a90e2;
+    background-color: #0d1117;
+    color: #f0f6fc;
+    font-size: 1em;
+}
+
+/* HIỂN THỊ KẾT QUẢ */
+.result-box {
+    background-color: #4a90e2; /* Màu xanh nổi bật */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+    min-height: 80px; /* Cố định chiều cao */
+}
+
+.result-box p {
+    margin: 0;
+    font-size: 0.85em;
+    color: #e0f0ff;
+}
+
+.animated-number {
+    font-size: 1.8em !important;
+    font-weight: 700;
+    color: #ffdb4d; /* Màu vàng Gold cho kết quả */
+    display: block;
+    margin-top: 5px;
+    animation: pulse-and-shake 0.5s ease-in-out; /* Chỉ chạy 1 lần khi thay đổi */
+}
+@keyframes pulse-and-shake {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; color: #fff; } /* Nhảy lớn và chuyển màu */
+    100% { transform: scale(1); opacity: 1; color: #ffdb4d; } 
+}
+
+.formula-display {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #30363d;
+    border-radius: 5px;
+    color: #8b949e;
+}
+
+/* Footer và các phần khác (Giữ nguyên) */
+footer {
+    text-align: center; padding: 20px; color: #6c7d95; font-size: 0.8em;
+}
+
+/* CÁC PHẦN KHÁC TỪ FILE CŨ NẾU CẦN:
+.grid-container, .investment-column, .data-block { ... } 
+*/
